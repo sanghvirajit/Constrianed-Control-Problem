@@ -1,0 +1,3 @@
+
+ Outer iteration converged in: 21 Cycles 
+ Execution time: 1334.58

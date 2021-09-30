@@ -11,7 +11,6 @@ Z = []
 P = []
 U_lhs = []
 
-
 T = np.linspace(0, 1, 129);
 X = np.linspace(0, 1, 33)
 
@@ -22,7 +21,7 @@ for j in range(len(T)):
 	t = T[j]
 	for i in range(1, len(X)-1):
 		x = X[i]
-		y = (1-t)**2 * np.around(math.sin(x * math.pi), decimals=5)
+		y = (1-t)**2 * math.sin(x * math.pi)
 		Y.append(y)
 	
 with open('Y.txt', 'w') as f:
@@ -33,7 +32,7 @@ for j in range(len(T)):
 	t = T[j]
 	for i in range(1, len(X)-1):
 		x = X[i]
-		z = (1-t)**2 * np.around(math.sin(x * math.pi), decimals=5) * (1 + mu * math.pi**4) - 2 * mu * np.around(math.sin(x * math.pi), decimals=5)
+		z = ((1-t)**2 * math.sin(x * math.pi) * (1 + mu * math.pi**4)) - (2 * mu * math.sin(x * math.pi))
 		Z.append(z)
 
 with open('Z.txt', 'w') as f:
@@ -44,7 +43,7 @@ for j in range(len(T)):
 	t = T[j]
 	for i in range(1, len(X)-1):
 		x = X[i]
-		p = -1 * mu * ( (-1.0) * 2 * (1-t) * np.around(math.sin(x * math.pi), decimals=5) + math.pi**2 * (1-t)**2 * np.around(math.sin(x * math.pi), decimals=5))
+		p = -1 * mu * ((-1.0) * 2 * (1-t) * math.sin(x * math.pi) + math.pi**2 * (1-t)**2 * math.sin(x * math.pi))
 		P.append(p)
 
 with open('P.txt', 'w') as f:
@@ -55,7 +54,7 @@ for j in range(len(T)):
 	t = T[j]
 	for i in range(1, len(X)-1):
 		x = X[i]
-		u_lhs = ( (-1.0) * 2 * (1-t) * np.around(math.sin(x * math.pi), decimals=5) + math.pi**2 * (1-t)**2 * np.around(math.sin(x * math.pi), decimals=5))
+		u_lhs = ((-1.0) * 2 * (1-t) * math.sin(x * math.pi)) + math.pi**2 * (1-t)**2 * math.sin(x * math.pi)
 		U_lhs.append(u_lhs)
 
 with open('U.txt', 'w') as f:
@@ -71,7 +70,7 @@ U_f = []
 
 for i in range(0, len(P)):
   
-  U.append(-1.0 * 1/mu * P[i])
+  U.append(-1.0 * (1/mu) * P[i])
     
   if(U[i] > u_b):
   	U[i] = u_b;        

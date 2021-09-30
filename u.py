@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import math
 
-u = pd.read_csv("u.txt", header=None)
+u = pd.read_csv("u_projected.txt", header=None)
 df = pd.DataFrame(index=np.arange((u.size)/31), columns=np.arange(1))
 
 n = 15
